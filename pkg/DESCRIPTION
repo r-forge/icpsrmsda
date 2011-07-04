@@ -1,0 +1,11 @@
+Package: icpsrmsda
+Type: Package
+Title: Optimal Linearizing Transformations for Multivariate Data
+Version: 1.0
+Date: 2011-07-03
+Author: Dave Armstrong and Bill Jacoby
+Maintainer: Dave Armstrong <davearmstrong.ps@gmail.com>
+Depends: car
+Description: This package is largely designed to support students in the Scaling, Measurement and Dimensional Analysis course.  Most functions for undertaking analysis in the course exist in other packages, but these functions comprise a set of utility and auxiliary functions. 
+License: GPL (>=2.0)
+LazyLoad: yes
