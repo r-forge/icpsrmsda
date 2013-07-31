@@ -12,8 +12,8 @@ This package implements functions designed for the Scaling, Measurement and Dime
 \tabular{ll}{
 Package: \tab icpsrmsda\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2011-07-03\cr
+Version: \tab 1.01\cr
+Date: \tab 2013-07-31\cr
 License: \tab GPL (>=2.0)\cr
 LazyLoad: \tab yes\cr
 }

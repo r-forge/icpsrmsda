@@ -1,7 +1,7 @@
 Package: icpsrmsda
 Type: Package
 Title: Optimal Linearizing Transformations for Multivariate Data
-Version: 1.0
+Version: 1.1
 Date: 2011-07-03
 Author: Dave Armstrong and Bill Jacoby
 Maintainer: Dave Armstrong <davearmstrong.ps@gmail.com>
