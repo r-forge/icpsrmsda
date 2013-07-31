@@ -1,19 +1,16 @@
-restplotfun <- function(x,y,jitter,...){
-	plot(x, jitter(y, jitter), xlab = "Rest Scale", ...)
-	lines(lowess(x,y,f=.25), col="red", lwd=2)
-}
-restplot <- function(X, jitter=0){
-	nc <- ncol(X)+1
-	nr <- ceiling(nc/3)
-	par(mfrow=c(nr, 3))
-	apdat <- lapply(1:(nc-1), function(i)cbind(rowSums(X[,-i]), X[,i]))
-	for(i in 1:length(apdat)){
-		colnames(apdat[[i]]) <- c("restscore", colnames(X)[i])
-	}
-	sapply(apdat, function(x)restplotfun(x=x[,1], y=x[,2], jitter=jitter, ylab = colnames(x)[2]))
-	los <- lapply(apdat, function(Z)lowess(Z[,1], Z[,2], f=.25))
-	xl <- range(c(sapply(los, function(x)x$x)))
-	yl <- range(c(sapply(los, function(x)x$y)))
-	plot(c(mean(xl),mean(yl)), xlim=xl,ylim=yl, type="n", xlab="Rest Scale", ylab="Individual Variables")
-	lapply(1:length(los), function(i)lines(los[[i]]$x, los[[i]]$y, lty=i))
+restplot <- function(X, jitter=0,...){
+	require(lattice)
+	nc <- ncol(X)
+	apdat <- lapply(1:nc, function(i)cbind(rowSums(X[,-i]), X[,i]))
+	plot.data <- as.data.frame(do.call(rbind, apdat))
+	names(plot.data) <- c("restscore", "xj")
+	plot.data$var <- rep(1:length(apdat), sapply(apdat, nrow))
+	plot.data$var <- factor(plot.data$var, labels=colnames(X))
+	xyplot(xj ~ restscore | var, data=plot.data, ..., 
+		panel = function(x,y,subscripts){
+			panel.points(x,jitter(y, jitter),col="gray75")
+      		panel.loess(x, y, span =	 .7, col = "black",
+      		        		family = "symmetric", degree = 2)		
+	})
+
 }

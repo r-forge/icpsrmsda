@@ -6,7 +6,7 @@
 Scaling Measurement and Dimensional Analysis
 }
 \description{
-This package implements functions designed for the Scaling, Measurement and Dimensional Analysis course at the ICPSR Summer Program for Quantitative Methods (2011). 
+This package implements functions designed for the Scaling, Measurement and Dimensional Analysis course at the ICPSR Summer Program for Quantitative Methods. 
 }
 \details{
 \tabular{ll}{
